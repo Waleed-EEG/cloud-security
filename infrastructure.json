@@ -1,0 +1,13 @@
+{
+  "resources": [
+    {
+      "type": "aws_s3_bucket",
+      "name": "data_bucket",
+      "attributes": {
+        "bucket": "company-financials-backup",
+        "acl": "public-read",
+        "server_side_encryption_configuration": null
+      }
+    }
+  ]
+}

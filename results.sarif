@@ -1,0 +1,64 @@
+{
+  "$schema": "https://raw.githubusercontent.com/oasis-tcs/sarif-spec/master/Schemata/sarif-schema-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "Cloud Security Policy Engine (OPA)",
+          "version": "1.0.0",
+          "informationUri": "https://github.com/open-policy-agent/opa",
+          "rules": [
+            {
+              "id": "CLOUD-SEC-001",
+              "name": "CloudMisconfiguration",
+              "shortDescription": {
+                "text": "Insecure cloud or data protection configuration detected."
+              }
+            }
+          ]
+        }
+      },
+      "results": [
+        {
+          "ruleId": "CLOUD-SEC-001",
+          "level": "error",
+          "message": {
+            "text": "S3 bucket 'company-financials-backup' has a public-read ACL enabled, exposing sensitive data to the internet."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "infrastructure.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        },
+        {
+          "ruleId": "CLOUD-SEC-001",
+          "level": "error",
+          "message": {
+            "text": "S3 bucket 'company-financials-backup' lacks server-side encryption configuration at rest."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "infrastructure.json"
+                },
+                "region": {
+                  "startLine": 1
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
